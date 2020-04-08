@@ -12,7 +12,8 @@ The time complexity for that would be quite slow, to the order of 0(n^2).
 To solve this problem in linear time where I only have to loop through the numbers array once would be to maybe to 
 create a set and check to see if the number is not in the set then I add it to the set and keep going down the
 numbers array. However, if the number in the numbers array is found in the set, which mean that we have seen
-that number before, and return True
+that number before, and return True. Since we only need to loop throught the array once the time complexity is linear
+which is 0(n)
 
 input 						output
 list = [2, 6, 4, 7, 6] -> 	True
