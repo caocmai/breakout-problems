@@ -55,3 +55,51 @@ def if_duplicate(a_list):
 
 print(if_duplicate(list_with_duplicate)) # Should return True
 print(if_duplicate(list_without_duplicate)) # SHould return False
+
+
+"""
+Question: Find the longest substring of unique letters in a given string of n letters.
+
+1 (Restate). I will be given a string and I should return the longest substring in that given string that has 
+all unique letters.
+2 (Clarify). Should I return the actual string or just the length of the longest substring?
+3 (Assumptions). I assume that the function takes in one input, which is a string a returns a string also
+4 (Solutions). I think to solve this it's probably a good idea to loop through the string and only add string 
+to a new list that contains only unique characters. If the new list encounters a letter that it has already seen
+then the new list should reset and repeat the process.
+
+input 					output
+string = "abcababab" -> 	abc
+string2 = "wpwkwwaaw -> 	pwk
+
+Pseudocode
+loop through the string 
+	if letter not found in new array, add to it
+	if letter is found in new array, it's seen before so start the new array at the from the point where seen letter 
+	to the end of the new array
+	find the length of the new array, and compare to a new variable called max length, starting at 0, and set the length
+	of the new array as the max length, and updating max length every time. 
+	
+	also check to see if the max length is equal to the length of the new array, if so then make a copy of that array
+	to be return as the array with the substring
+return the longest unique substring
+
+
+"""
+def find_unique_subtring(string):
+	unique_string = []
+	max_length = 0
+
+	for letter in string:
+		if letter in unique_string:
+			unique_string = unique_string[unique_string.index(letter)+1: ] # Set the unique string to start after the found letter
+
+		unique_string.append(letter)
+		max_length = max(max_length, len(unique_string))
+
+		
+
+	return unique_string
+
+
+print(find_unique_subtring("wpwkwwaaw"))
