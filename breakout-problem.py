@@ -88,6 +88,7 @@ return the longest unique substring
 """
 def find_unique_subtring(string):
 	unique_string = []
+	longest_unique_string = []
 	max_length = 0
 
 	for letter in string:
@@ -97,9 +98,10 @@ def find_unique_subtring(string):
 		unique_string.append(letter)
 		max_length = max(max_length, len(unique_string))
 
-		
+		if max_length == len(unique_string):
+			longest_unique_string = unique_string
 
-	return unique_string
+	return ("").join(longest_unique_string)
 
 
-print(find_unique_subtring("wpwkwwaaw"))
+print(find_unique_subtring("abbabcbb"))
